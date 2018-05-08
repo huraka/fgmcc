@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			.box {
+				width: 200px;
+				height: 200px;
+				background: skyblue;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				bottom: 0;
+			}
+			
+			.bd {
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="bd">
+			<div class="box"></div>
+
+			<button class="changeWidth">变宽</button>
+			<button class="changeHeight">变高</button>
+			<button class="changeColor">变色</button>
+			<button class="changeHide">隐藏</button>
+			<button class="back">重置</button>
+
+		</div>
+
+		<script>
+			//		var changeWidth= document.getElementsByClassName('changeWidth')[0].onclick=function(){
+			//			  document.getElementsByClassName('box')[0].style.width=300+'px'
+			//		}; 
+			//		document.getElementsByClassName('changeHeight')[0].onclick=function(){
+			//			  document.getElementsByClassName('box')[0].style.height=300+'px'
+			//		}; 
+			//		document.getElementsByClassName('changeColor')[0].onclick=function(){
+			//		 document.getElementsByClassName('box')[0].style.background="blue"
+			//			 
+			//		}; 
+			//		document.getElementsByClassName('changeHide')[0].onclick=function(){
+			//			  document.getElementsByClassName('box')[0].style.display="none"
+			//		}; 
+			//		
+			//		document.getElementsByClassName('back')[0].onclick=function(){
+			//			 document.getElementsByClassName('box')[0].style.cssText=""
+			//			  document.getElementsByClassName('box')[0].style.display="block"
+			//		};
+			window.onload = function() {
+				let btn = document.getElementsByTagName('button');
+				let odiv = document.getElementsByClassName('box')[0];
+
+				let change = ['width', 'height', 'background', 'display', 'display'];
+				let value = ['300px', '300px', 'blue', 'none', 'block']
+				for(let i = 0; i < btn.length; i++) {
+					btn[i].onclick = function() {
+						if(i==4){
+							odiv.style.cssText = ""
+						}
+						
+						odiv.style[change[i]] = value[i]
+					}
+
+				}
+
+			}
+		</script>
+	</body>
+
+</html>
